@@ -1,0 +1,13 @@
+<h1 id="analysis-of-the-subreddit-community-structure">Analysis of the subreddit community structure</h1>
+<h3 id="september-12th-2012">September 12th, 2012</h3>
+<p>While reading a paper for class, I felt compelled to try my hand at implementing the approach they took. A lot of times I read things, they make some sense, but I don&#8217;t really know how much I don&#8217;t know about them until I stop reading and try doing. The paper is called Finding and Evaluating Community structure in networks, from 2003.  </p>
+<p>I read the paper a couple months ago, and the other day started thinking about all the uses for a means of picking out communities within a larger network. Basically, their paper says we should calculate the betweenness of each edge in a graph, and then remove those edges with the highest betweenness. If betweenness is a measure of how often an edge is crossed on a path for every pair of nodes in the graph, then we&#8217;ll be removing the edges that are most commonly crossed on a shortest path from node a to b. Eventually, the original graph is split up into smaller graphs, which, from their perspective, carry greater similarity between nodes.  </p>
+<p>So thinking about this in terms of a real community, I figured, two subreddits, a and b, are connected if a user has two comments c1 and c2 that live in a and b. So this constitutes an edge in the graph, where a node is a subreddit. I used the reddit api to pull some submissions and comments down, where I then constructed a graph. I figured it would be neat to evaluate this in large sets of data, so I committed the graph to a redis instance. When the data is downloaded, a python script loads the entire data set from redis and begins classifying (the fun part!) communities. The following occurs:</p>
+<ul>
+<li>Calculate every shortest path for every pair of nodes in the graph</li>
+<li>For each node in the graph, find the fraction of paths that contain that node vs how many don&#8217;t. This is betweenness (as per wikipedia&#8217;s definition)</li>
+<li>Remove the edge with the highest betweenness (just the betweenness of that start and end nodes added together&#8230;maybe this assumption is flawed)</li>
+<li>Repeat</li>
+</ul>
+<p>(source is in the depths of my computer, somewhere..)</p>
+<p>Built with python and arbor.js</p>

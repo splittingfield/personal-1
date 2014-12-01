@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "klinic";
+  src: url("/static/resume/fonts/KlinicSlabBook.otf") format("opentype");
+}
+@font-face {
+  font-family: "myriad";
+  src: url("/static/resume/fonts/myriad-light.otf") format("opentype");
+}
+@font-face {
+  font-family: "myriad-italic";
+  src: url("/static/resume/fonts/myriad-light-italic.otf") format("opentype");
+}
+
+
+* {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+
+body {
+  padding: 16px;
+}
+
+
+h1, h2, h3, h4, h5 { 
+  letter-spacing: .0425em;
+  font-family: "klinic", Helvetica, Sans-Serif;
+  -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
+  font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
+
+}
+
+.underline {
+  border-bottom:1px solid #7F7F7F;
+  margin-bottom: 8px;
+}
+
+p, span, a {
+  font-family: "myriad", Helvetica, Sans-Serif;
+}
+
+a {
+  color: #7F7F7F;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+p em {
+  font-family: "myriad-italic", Helvetica, Sans-Serif;  
+}
+
+p.skill-level, p.place, p.job-title, p.job-tools {
+  margin:4px 0px;
+}
+
+span.skill-level-type, span.project-title {
+  min-width: 100px;
+  display: inline-block;
+  font-family: "myriad-italic", Helvetica, Sans-Serif;  
+}
+
+.date {
+  /* heuehuehe */
+  float:right;
+  font-family: "myriad-italic", Helvetica, Sans-Serif;    
+}
+
+
+.resume {
+  margin:0 auto;
+  max-width:768px;
+}
+
+p.place {
+  margin: 0px;
+}
+
+.job-description {
+  margin: 8px 0px;
+}
+
+p.job-tools, p.project {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+p.job-tools {
+  font-family: "myriad-italic", Helvetica, Sans-Serif;
+}
+
+p.regular {
+  font-family: "myriad", Helvetica, Sans-Serif;
+}
+
+.project-title {
+  display: block; 
+}
+.project {
+  margin-top: 4px;
+}
+
+.and-more {
+  text-align: center;
+  display: block;
+}

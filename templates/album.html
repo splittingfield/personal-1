@@ -1,0 +1,26 @@
+{% extends "core.html" %}
+
+{% block javascript %}
+<script type="text/javsacript" src="/static/js/libs/galleria-1.2.9.min.js"></script>
+{% endblock %}
+
+
+{% block main %}
+
+<div id="photos" class="box">
+	{% for p in pics %}
+		<div class="photo-thumb-crop">
+			<a href="javascript:void(0)"
+				class="action"
+				data-action="showImg"
+				data-src="/static/img/albums/{{ album }}/{{ p }}"
+			>
+				<img src="/static/img/albums/{{ album }}/thumbs/{{ p }}"/>
+			</a>
+		</div>
+	{% endfor %}
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "core.html" %}
+
+{% load core_tags %}
+
+
+{% block main %}
+<div class="box">
+	<ul class="nav nav-list">
+		{% for a in albums %}
+			<li>
+				<a href="/albums/{{a}}">{{a}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+    "name": "hiiamchris",
+    "version": "0.0.0",
+    "repository": "rozap/hiiamchris",
+    "author": {
+        "name": "Chris Duranti",
+        "email": "chrisd1891@gmail.com",
+        "url": "http://hiiamchris.com"
+    },
+    "dependencies": {
+        "gulp" : "latest",
+        "gulp-markdown" : "latest",
+        "gulp-nunjucks-render" : "latest"
+    }
+}
