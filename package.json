@@ -10,6 +10,11 @@
     "dependencies": {
         "gulp" : "latest",
         "gulp-markdown" : "latest",
-        "gulp-nunjucks-render" : "latest"
+        "gulp-nunjucks-render" : "latest",
+        "imagemagick" : "latest",
+        "async" : "latest",
+        "q" : "latest",
+        "mkdirp" : "latest",
+        "gulp-rename" : "latest"
     }
 }

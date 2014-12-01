@@ -57,6 +57,14 @@ h1.home {
   margin:0px;
 }
 
+.album {
+  margin-top: 16px;
+}
+
+.album .pic {
+  margin: 16px 0px;
+}
+
 
 .underline {
   border-bottom:1px solid #7F7F7F;
