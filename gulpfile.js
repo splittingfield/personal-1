@@ -8,6 +8,7 @@ var async = require('async');
 var Q = require('q');
 var mkdirp = require('mkdirp');
 var rename = require("gulp-rename");
+var gm = require('gm');
 
 var postsDir = 'dist/posts';
 var albumsDir = './dist/static/img/albums/';
@@ -35,18 +36,21 @@ gulp.task('thumbnails', ['assets'], function() {
 		var images = fs.readdirSync(path.join(albumsDir, album))
 			.filter(isPic);
 
-		var thumbDir = path.join(albumsDir, album, 'nthumbs');
+		var thumbDir = path.join(__dirname, albumsDir, album, 'nthumbs');
 		mkdirp(thumbDir, function() {
 			async.mapSeries(images, function(image, cb) {
-				im.resize({
-					srcPath: path.join(albumsDir, album, image),
-					dstPath: path.join(thumbDir, image),
-					width: 160,
-					height: '160^'
-				}, function(err, stdout, stderr) {
-					if (err) console.warn(err);
-					cb(null, image);
-				});
+
+				var dest = path.join(thumbDir, image);
+
+					gm(path.join(albumsDir, album, image))
+						.resize('160', '160', '^')
+						.gravity('Center')
+						.crop('160', '160')
+						.write(dest, function(err) {
+							if (err) console.log(err);
+							cb(err, "woohoo")
+							console.log("Done with", dest)
+						});
 
 			}, function(err, results) {
 				albumCallback(null, results);

@@ -15,6 +15,7 @@
         "async" : "latest",
         "q" : "latest",
         "mkdirp" : "latest",
-        "gulp-rename" : "latest"
+        "gulp-rename" : "latest",
+        "gm" : "latest"
     }
 }

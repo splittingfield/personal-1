@@ -61,9 +61,11 @@ h1.home {
   margin-top: 16px;
 }
 
-.album .pic {
-  margin: 16px 0px;
+.album .pic img {
+  padding: 16px;
+  border-radius: 2px;
 }
+
 
 
 .underline {
