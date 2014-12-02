@@ -59,17 +59,27 @@
 
 
 <div class="post">
-	<h1 id="aquaponics">Aquaponics</h1>
-<h3 id="june-14th-2014">June 14th, 2014</h3>
-<p>I don&#39;t even know how I came across aquaponics, but it seemed like something that would be fun to overcomplicate. Also fish are cool and basil is delicious. </p>
-<p>I built a little ebb and flow system that is controlled by raspberry pi. The pi controls the pump and the valve which it runs on a timer to fill and drain the grow beds. The pi also monitors pH via a pH sensor that runs on i2c. There&#39;s also a water temperature sensor that collects data. All the readings are displayed on a web page and graphed. </p>
-<p>Everything that runs the sensors and the web console is <a href="https://github.com/rozap/rpi_garden">here.</a></p>
-<p>Some pictures are <a href="/albums/aquaponics.html">here.</a></p>
+	<h1 id="-vuln-pub-posts-11-10-2014-html-"><a href="posts/11-10-2014.html">vuln.pub</a></h1>
+<h3 id="november-11th-2014">November 11th, 2014</h3>
+<p>A while back I had a small digital ocean instance running elastic search as part of an app. There was a big vulnerability in the dynamic scripting module that allowed arbitrary code execution. My instance got hacked, but it was around two months after the vulnerability disclosure, but I never heard about it.  </p>
+<p>I was wanting to try out the Phoenix framework in Elixir at the time, so I put together a little app that monitors security disclosure lists and will notify you when a package in your application has a vulnerability. If your packages are managed through a package manager like apt, npm, pypi, or rubygems, then it&#39;s really simple to get notifications when there&#39;s a disclosure affecting you. </p>
+<p><a href="https://www.vuln.pub">The site is called vuln.pub</a>. You can create a &quot;monitor&quot; which has a manifest describing the dependencies in your app. vuln.pub will periodically poll your manifest for changes in your packages and package versions. When a vulnerability comes in from a seclist, it will find all the packages you have installed, and if their version is vulnerable, send you a notification.</p>
+<p>Elixir was surprisingly pleasant, much more so than node. I think I&#39;ll be writing a lot of stuff in the future with it. </p>
+<h6 id="stuff-used-elixir-phoenix-postgres-ecto-browserify-influxdb-gulp">Stuff used: elixir, phoenix, postgres, ecto, browserify, influxdb, gulp</h6>
 
 </div>
 
 <div class="post">
-	<h1 id="census-dataset-explorer">Census Dataset Explorer</h1>
+	<h1 id="-aquaponics-posts-6-14-2014-html-"><a href="posts/6-14-2014.html">Aquaponics</a></h1>
+<h3 id="june-14th-2014">June 14th, 2014</h3>
+<p>I don&#39;t even know how I came across aquaponics, but it seemed like something that would be fun to overcomplicate. Also fish are cool and basil is delicious. </p>
+<p>I built a little ebb and flow system that is controlled by raspberry pi. The pi controls the pump and the valve which it runs on a timer to fill and drain the grow beds. The pi also monitors pH via a pH sensor that runs on i2c. There&#39;s also a water temperature sensor that collects data. All the readings are displayed on a web page and graphed. </p>
+<p>Everything that runs the sensors and the web console is <a href="https://github.com/rozap/rpi_garden">here.</a></p>
+
+</div>
+
+<div class="post">
+	<h1 id="-census-dataset-explorer-posts-2-22-2014-html-"><a href="posts/2-22-2014.html">Census Dataset Explorer</a></h1>
 <h3 id="february-22nd-2014">February 22nd, 2014</h3>
 <p>I heard about the US Census API and was looking around inside it. There are thousands of cool datasets within a well executed API, but it&#39;s pretty hard to navigate through because of the scale. I thought it would be cool if there was a way to organize them and maybe  provide a simple visualization for each dataset. I created a thing called <a href="http://census-explorer.com">Census Explorer</a> that attempts to do that. Hopefully it will make the datasets more accessible. Right now it consists of the SF1 and ACS5 datasets from the 2010 Census. </p>
 <p>I pretty much just dumped all the dataset descriptions into an Elastic Search index, and provided a simple api for getting at it. The web interface is intentionally minimal, as this is really just an experiment-weekend project. <a href="http://github.com/rozap/census-explorer">The source lives here</a>.</p>
@@ -78,7 +88,7 @@
 </div>
 
 <div class="post">
-	<h1 id="meaty-links-and-tunes">Meaty links and Tunes</h1>
+	<h1 id="-meaty-links-and-tunes-posts-11-10-2013-html-"><a href="posts/11-10-2013.html">Meaty links and Tunes</a></h1>
 <h3 id="november-10th-2013">November 10th, 2013</h3>
 <p>People have been sending a lot of good links over <a href="http://chat.meatspac.es">meatspaces</a>. There are a lot of good tunes, sites, etc sent, so I made <a href="http://meatlinks.hiiamchris.com">A simple Thing</a> to listen to the meatspace chat and save the links. The source is <a href="https://github.com/rozap/meatspace-links">here.</a>  </p>
 <p>Update: Recently added a radio feature. The bot will pull out any soundcloud links or youtube music from the conversation and index it. If you click on the link in the top right of meatlinks, an embedded player will show up and will choose a random song to play, and then move onto the next. So it&#39;s a little shuffle based player that plays music that has previously been sent. Sometimes the category of a youtube song isn&#39;t set as &quot;music&quot; so to explicitly add a youtube link you can include &quot;musicbot&quot; in the meatspace message. </p>
@@ -87,7 +97,7 @@
 </div>
 
 <div class="post">
-	<h1 id="indexing-the-unindexed-tumblrs">Indexing the unindexed tumblrs</h1>
+	<h1 id="-indexing-the-unindexed-tumblrs-posts-10-4-2013-html-"><a href="posts/10-4-2013.html">Indexing the unindexed tumblrs</a></h1>
 <h4 id="august-4th-2013">August 4th, 2013</h4>
 <p>After purchasing tumblr, it didn&#39;t take Yahoo long to start messing it up. Yahoo allegedly adopted some fairly strict filtering of content, so based on the content of your blog it could be blocked by the site&#39;s internal search as well as external (ie: google) searches. I built an application that crawls tumblr and builds a list of the unindexed blogs, and then made it searchable. To be honest, I don&#39;t really understand tumblr, and I can&#39;t tell the difference between spam and not-spam, since everyone is just reposting everyone else&#39;s (mostly nsfw) posts anyway. And Yahoo alleges that this is mostly a spam filtering strategy. Nevertheless, it was a policy change that got people worked up and it was sort of a fun sunday evening project.  </p>
 <p>(link removed, i took the server down)</p>
@@ -96,14 +106,14 @@
 </div>
 
 <div class="post">
-	<h1 id="load-testing-using-digital-ocean">Load Testing using Digital Ocean</h1>
+	<h1 id="-load-testing-using-digital-ocean-posts-5-31-2013-html-"><a href="posts/5-31-2013.html">Load Testing using Digital Ocean</a></h1>
 <h3 id="may-31st-2013">May 31st, 2013</h3>
 <p>The folks at the Chicago Tribune built a load testing utility called <a href="https://github.com/newsapps/beeswithmachineguns">Bees with Machine Guns</a> which is a nice little tool that starts a number of EC2 instances, then hits a URL a bunch of times, and then shuts everything down after generating a report. It&#39;s a cheap, easy, and realistic way to load test your site. I&#39;ve been using Digital Ocean for a few months now, mostly because it&#39;s cheaper, but they also provide a nice API, so I modified bees with machine guns to run on digital ocean rather than AWS. The project is called <a href="https://github.com/rozap/minnowswithmachineguns">Minnows with machine guns.</a></p>
 
 </div>
 
 <div class="post">
-	<h1 id="vw-bus-lights-etc">VW Bus lights etc</h1>
+	<h1 id="-vw-bus-lights-etc-posts-5-28-2013-html-"><a href="posts/5-28-2013.html">VW Bus lights etc</a></h1>
 <h3 id="may-28th-2013">May 28th, 2013</h3>
 <p>I wanted to put a bunch of LEDs in the ceiling of the 73 VW bus I have. I finally put the arduino to use in this project. The arduino controls some (4) TLC5940 LED drivers, and an Android through an app I wrote communicates with the arduino via serial bluetooth adapter. There are 64 LEDs and each is addressable individually, and can be faded on or off. It&#39;s pretty basic but it was the most elegant way I could think of lighting up the inside of the bus. The end result was something I&#39;m pretty happy with...it works well and looks pretty cool. </p>
 <p><a href="/albums/bus_lights">The result is here</a></p>
@@ -124,7 +134,7 @@
 </div>
 
 <div class="post">
-	<h1 id="ranking-cities-by-their-pet-friendly-factor">Ranking cities by their Pet Friendly Factor</h1>
+	<h1 id="-ranking-cities-by-their-pet-friendly-factor-posts-4-16-2013-html-"><a href="posts/4-16-2013.html">Ranking cities by their Pet Friendly Factor</a></h1>
 <h3 id="april-16th-2013">April 16th, 2013</h3>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
@@ -173,7 +183,7 @@
 </div>
 
 <div class="post">
-	<h1 id="corpcrawl">CorpCrawl</h1>
+	<h1 id="-corpcrawl-posts-3-12-2013-html-"><a href="posts/3-12-2013.html">CorpCrawl</a></h1>
 <h3 id="march-12th-2013">March 12th, 2013</h3>
 <p>As part of a project I&#39;m working on in my free time, I needed to figure out corporate relationships. The SEC requires that all publicly held corporations file a list of their subsidiaries in their form 10K each year. So by scraping a section (called exhibit 21.1) in the 10k document, you can extract a list of subsidiaries from that registrant. The issue is that every company files their 10k in a different format, and lack of uniformity makes scraping a lot harder. Moreover, it says nothing about privately held companies. Anyway, I did my best and it manages to extract a lot of information.  </p>
 <p>I made the project lightweight and separate from any storage backend, so I should be able to easily integrate it back into the larger project I&#39;m doing at a later date. Also, I was hoping that others might find it useful. It&#39;s a little bit out there though, so who knows. 
@@ -183,7 +193,7 @@
 </div>
 
 <div class="post">
-	<h1 id="aircooled-rescue">Aircooled Rescue</h1>
+	<h1 id="-aircooled-rescue-posts-2-20-2013-html-"><a href="posts/2-20-2013.html">Aircooled Rescue</a></h1>
 <h3 id="february-20th-2013">February 20th, 2013</h3>
 <p>The aircooled VW community is pretty chill. There used to be a site that listed contact information of people willing to help out a travelling aircooled VW owner should there be a mishap on the road. The old site wasn&#39;t being maintained anymore, so I made my own. I scraped all the old info from the previous site, and made the new site accept registrations, rather than running each listing by the webmaster. Then all that info gets plotted on a map.   </p>
 <p><a href="http://www.aircooledrescue.com">You can check it out here</a></p>
@@ -192,7 +202,7 @@
 </div>
 
 <div class="post">
-	<h1 id="the-prettiest-places-on-earth">The prettiest places on Earth</h1>
+	<h1 id="-the-prettiest-places-on-earth-posts-2-2-2013-html-"><a href="posts/2-2-2013.html">The prettiest places on Earth</a></h1>
 <h3 id="february-2nd-2013">February 2nd, 2013</h3>
 <p>Figured it would be possible to map the posts on reddit&#39;s earthporn subreddit by geocoding the post titles. Then you can see where the posts are geographically, which is nice for discovering pretty stuff around you. </p>
 <p>(link removed :()</p>
@@ -201,7 +211,7 @@
 </div>
 
 <div class="post">
-	<h1 id="a-graph-of-hubski">A Graph of Hubski</h1>
+	<h1 id="-a-graph-of-hubski-posts-1-13-2013-html-"><a href="posts/1-13-2013.html">A Graph of Hubski</a></h1>
 <h3 id="january-13th-2013">January 13th, 2013</h3>
 <p>Thought it would be interesting to visualize the connections of Hubski in a different way. Though the graph should be directed, I wanted to keep it simple, so right now it’s undirected. Size represents the number of followers someone has. Let it settle for a couple seconds, then click the “Stop Layout” button. You can zoom with your mouse wheel. Mouse over a user to eliminate all users that aren’t directly following or followed by them.</p>
 <p>[link removed, sry :(]</p>
@@ -210,7 +220,7 @@
 </div>
 
 <div class="post">
-	<h1 id="analysis-of-the-subreddit-community-structure">Analysis of the subreddit community structure</h1>
+	<h1 id="-analysis-of-the-subreddit-community-structure-posts-9-12-2012-html-"><a href="/posts/9-12-2012.html">Analysis of the subreddit community structure</a></h1>
 <h3 id="september-12th-2012">September 12th, 2012</h3>
 <p>While reading a paper for class, I felt compelled to try my hand at implementing the approach they took. A lot of times I read things, they make some sense, but I don&#8217;t really know how much I don&#8217;t know about them until I stop reading and try doing. The paper is called Finding and Evaluating Community structure in networks, from 2003.  </p>
 <p>I read the paper a couple months ago, and the other day started thinking about all the uses for a means of picking out communities within a larger network. Basically, their paper says we should calculate the betweenness of each edge in a graph, and then remove those edges with the highest betweenness. If betweenness is a measure of how often an edge is crossed on a path for every pair of nodes in the graph, then we&#8217;ll be removing the edges that are most commonly crossed on a shortest path from node a to b. Eventually, the original graph is split up into smaller graphs, which, from their perspective, carry greater similarity between nodes.  </p>

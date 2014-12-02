@@ -10,87 +10,69 @@
   font-family: "myriad-italic";
   src: url("/static/fonts/myriad-light-italic.otf") format("opentype");
 }
-
-
 * {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
 }
-
-
-
 .main {
   max-width: 940px;
-  margin:0px auto;
+  margin: 0px auto;
 }
-
-
 ul {
-  list-style: none;
   padding-left: 16px;
 }
-
-
+ul.nav {
+  list-style: none;
+}
+ul.nav li {
+  padding: 4px 0px;
+}
 body {
   padding: 16px;
 }
-
-
-h1, h2, h3, h4, h5 { 
+h1, h2, h3, h4, h5 {
   letter-spacing: .0425em;
   font-family: "klinic", Helvetica, Sans-Serif;
   -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
   font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
 }
-
-h1>a, h2>a, h3>a, h4>a, h5>a { 
+h1>a, h2>a, h3>a, h4>a, h5>a {
   letter-spacing: .0425em;
   font-family: "klinic", Helvetica, Sans-Serif;
   -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
   font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 0, 'salt' 0, 'kern' 1;
   color: #000;
 }
-
 h1.home {
-  margin:0px;
+  margin: 0px;
 }
-
 .album {
   margin-top: 16px;
 }
-
 .album .pic img {
   padding: 16px;
   border-radius: 2px;
 }
-
-
-
 .underline {
-  border-bottom:1px solid #7F7F7F;
+  border-bottom: 1px solid #7F7F7F;
   margin-bottom: 8px;
 }
 .underline.light {
-  border-bottom:1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
 }
-
 .post {
-  border-bottom:1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
   margin-bottom: 16px;
 }
-
 p.small {
-  margin:0px;
-  padding:8px 0px;
+  margin: 0px;
+  padding: 8px 0px;
 }
-
-
-p, span, a {
+p, span, a, li {
   font-family: "myriad", Helvetica, Sans-Serif;
 }
-
 a {
   color: #7F7F7F;
   text-decoration: none;
@@ -98,62 +80,49 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
 p em {
-  font-family: "myriad-italic", Helvetica, Sans-Serif;  
+  font-family: "myriad-italic", Helvetica, Sans-Serif;
 }
-
 p.skill-level, p.place, p.job-title, p.job-tools {
-  margin:4px 0px;
+  margin: 4px 0px;
 }
-
 span.skill-level-type, span.project-title {
   min-width: 100px;
   display: inline-block;
-  font-family: "myriad-italic", Helvetica, Sans-Serif;  
+  font-family: "myriad-italic", Helvetica, Sans-Serif;
 }
-
 .date {
   /* heuehuehe */
-  float:right;
-  font-family: "myriad-italic", Helvetica, Sans-Serif;    
+  float: right;
+  font-family: "myriad-italic", Helvetica, Sans-Serif;
 }
-
-
 .resume {
-  margin:0 auto;
-  max-width:768px;
+  margin: 0 auto;
+  max-width: 768px;
 }
-
 p.place {
   margin: 0px;
 }
-
 .job-description {
   margin: 8px 0px;
 }
-
 p.job-tools, p.project {
   border-bottom: 1px solid #ebebeb;
   padding-bottom: 16px;
   margin-bottom: 16px;
 }
-
 p.job-tools {
   font-family: "myriad-italic", Helvetica, Sans-Serif;
 }
-
 p.regular {
   font-family: "myriad", Helvetica, Sans-Serif;
 }
-
 .project-title {
-  display: block; 
+  display: block;
 }
 .project {
   margin-top: 4px;
 }
-
 .and-more {
   text-align: center;
   display: block;

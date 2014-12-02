@@ -3,12 +3,12 @@
 
 {% block main %}
 
+<ul class="nav">
 {% for a in albums %}
-<ul>
 	<li>
 		<a href="/albums/{{ a }}.html">{{ a }}</a>
 	</li>
-</ul>
 {% endfor %}
+</ul>
 
 {% endblock %}

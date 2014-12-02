@@ -1,0 +1,5 @@
+<h1 id="-census-dataset-explorer-posts-2-22-2014-html-"><a href="posts/2-22-2014.html">Census Dataset Explorer</a></h1>
+<h3 id="february-22nd-2014">February 22nd, 2014</h3>
+<p>I heard about the US Census API and was looking around inside it. There are thousands of cool datasets within a well executed API, but it&#39;s pretty hard to navigate through because of the scale. I thought it would be cool if there was a way to organize them and maybe  provide a simple visualization for each dataset. I created a thing called <a href="http://census-explorer.com">Census Explorer</a> that attempts to do that. Hopefully it will make the datasets more accessible. Right now it consists of the SF1 and ACS5 datasets from the 2010 Census. </p>
+<p>I pretty much just dumped all the dataset descriptions into an Elastic Search index, and provided a simple api for getting at it. The web interface is intentionally minimal, as this is really just an experiment-weekend project. <a href="http://github.com/rozap/census-explorer">The source lives here</a>.</p>
+<h6 id="stuff-used-flask-elasticsearch">Stuff used: flask, elasticsearch</h6>

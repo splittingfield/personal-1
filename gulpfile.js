@@ -9,8 +9,8 @@ var Q = require('q');
 var mkdirp = require('mkdirp');
 var rename = require("gulp-rename");
 var gm = require('gm');
-
-var postsDir = 'dist/posts';
+var merge = require('merge-stream');
+var postsDir = 'dist/partials';
 var albumsDir = './dist/static/img/albums/';
 
 function fnameToDate(name) {
@@ -22,6 +22,20 @@ function fnameToDate(name) {
 
 function isPic(image) {
 	return image.split('.')[1] === 'jpg';
+}
+
+function getPosts() {
+	return fs.readdirSync(postsDir).sort(function(f1, f2) {
+		return fnameToDate(f1) < fnameToDate(f2) ? 1 : -1;
+	}).map(function(name) {
+		return {
+			text: fs.readFileSync(path.join(postsDir, name), {
+				encoding: 'utf8'
+			}),
+			name: name
+		}
+	});
+
 }
 
 
@@ -42,15 +56,15 @@ gulp.task('thumbnails', ['assets'], function() {
 
 				var dest = path.join(thumbDir, image);
 
-					gm(path.join(albumsDir, album, image))
-						.resize('160', '160', '^')
-						.gravity('Center')
-						.crop('160', '160')
-						.write(dest, function(err) {
-							if (err) console.log(err);
-							cb(err, "woohoo")
-							console.log("Done with", dest)
-						});
+				gm(path.join(albumsDir, album, image))
+					.resize('160', '160', '^')
+					.gravity('Center')
+					.crop('160', '160')
+					.write(dest, function(err) {
+						if (err) console.log(err);
+						cb(err, "woohoo");
+						console.log("Converted", dest)
+					});
 
 			}, function(err, results) {
 				albumCallback(null, results);
@@ -79,7 +93,7 @@ gulp.task('albums', ['thumbnails'], function() {
 			}))
 			.pipe(rename(album + '.html'))
 			.pipe(gulp.dest('dist/albums'));
-	})
+	});
 
 
 	nunjucks.nunjucks.configure(['templates/']);
@@ -93,15 +107,12 @@ gulp.task('albums', ['thumbnails'], function() {
 
 gulp.task('markdown', ['blog'], function() {
 
-	var posts = fs.readdirSync(postsDir).sort(function(f1, f2) {
-		return fnameToDate(f1) < fnameToDate(f2) ? 1 : -1;
-	}).map(function(name) {
-		return fs.readFileSync(path.join(postsDir, name), {
-			encoding: 'utf8'
-		});
+	var posts = getPosts().map(function(p) {
+		return p.text;
 	});
 
 	nunjucks.nunjucks.configure(['templates/']);
+
 	return gulp.src('templates/index.html')
 		.pipe(nunjucks({
 			posts: posts
@@ -110,18 +121,49 @@ gulp.task('markdown', ['blog'], function() {
 
 });
 
-gulp.task('blog', function() {
 
+gulp.task('posts', function() {
+	var posts = getPosts();
+
+	nunjucks.nunjucks.configure(['templates/']);
+
+	var streams = posts.map(function(post) {
+		return gulp.src('templates/post.html')
+			.pipe(nunjucks({
+				post: post.text
+			}))
+			.pipe(rename(post.name))
+			.pipe(gulp.dest('dist/posts'))
+	});
+
+	var merged = merge(streams[0], streams[1]);
+	streams.slice(2).forEach(function(s) {
+		merged.add(s);
+	});
+	return merged;
+});
+
+gulp.task('blog', function() {
 	gulp.src('posts/*')
 		.pipe(markdown())
 		.pipe(gulp.dest(postsDir));
-
 });
 
 gulp.task('assets', function() {
-	console.log("copy assets");
 	gulp.src('assets/**/*').pipe(gulp.dest('dist/static'));
 });
+
+gulp.task('about', function() {
+	nunjucks.nunjucks.configure(['templates/']);
+	gulp.src('templates/about.html')
+		.pipe(nunjucks())
+		.pipe(gulp.dest('dist'))
+});
+
+gulp.task('resume', function() {
+	gulp.src('templates/resume.html').pipe(gulp.dest('dist'))
+})
+
 
 
 gulp.task('watch', function() {
@@ -131,4 +173,4 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['index', 'blog', 'markdown', 'albums']);
+gulp.task('default', ['index', 'blog', 'markdown', 'albums', 'resume', 'about']);

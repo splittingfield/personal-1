@@ -16,6 +16,7 @@
         "q" : "latest",
         "mkdirp" : "latest",
         "gulp-rename" : "latest",
-        "gm" : "latest"
+        "gm" : "latest",
+        "merge-stream" : "latest"
     }
 }
