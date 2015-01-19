@@ -174,3 +174,4 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['index', 'blog', 'markdown', 'albums', 'resume', 'about']);
+gulp.task('text', ['blog', 'markdown', 'index', 'posts']);
