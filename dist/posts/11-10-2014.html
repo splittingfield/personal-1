@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<link rel='icon' href='/static/img/favicon.png' type='image/png' />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="twitter:creator" content="@rozap_"/>
+		<meta property="og:title" content="hi i am chris" />
+		<meta property="og:type" content="blog">
+		<meta poperty="og:url" content="http://hiiamchris.com">
+		<meta property="og:site_name" property="hi i am chris">
+
+
+		<title>Web Commander 3000</title>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">	
+		<link rel="stylesheet" href="/static/css/style.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="pure-g">
+				<div class="pure-u-1">
+					<h1 class="home">
+						<a href="/">Hi</a>
+					</h1>
+					<p class="small underline light">I'm Chris.</p>
+				</div>
+			</div>
+
+			<div class="pure-g">
+				<div class="pure-u-1-6">
+
+					<ul class="nav nav-list">
+						<li>
+							<a href="/">words</a>
+						</li>
+						<li>
+							<a href="/albums.html">photos</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/rozap_">tweets</a>
+						</li>
+						<li>
+							<a href="https://github.com/rozap">github</a>
+						</li>
+						<li>
+							<a href="/resume.html">resume</a>
+						</li>
+						<li>
+							<a href="/about.html">about</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="pure-u-5-6">
+					
+
+<h1 id="-vuln-pub-posts-11-10-2014-html-"><a href="posts/11-10-2014.html">vuln.pub</a></h1>
+<h3 id="november-11th-2014">November 11th, 2014</h3>
+<p>A while back I had a small digital ocean instance running elastic search as part of an app. There was a big vulnerability in the dynamic scripting module that allowed arbitrary code execution. My instance got hacked, but it was around two months after the vulnerability disclosure, but I never heard about it.  </p>
+<p>I was wanting to try out the Phoenix framework in Elixir at the time, so I put together a little app that monitors security disclosure lists and will notify you when a package in your application has a vulnerability. If your packages are managed through a package manager like apt, npm, pypi, or rubygems, then it&#39;s really simple to get notifications when there&#39;s a disclosure affecting you. </p>
+<p><a href="https://www.vuln.pub">The site is called vuln.pub</a>. You can create a &quot;monitor&quot; which has a manifest describing the dependencies in your app. vuln.pub will periodically poll your manifest for changes in your packages and package versions. When a vulnerability comes in from a seclist, it will find all the packages you have installed, and if their version is vulnerable, send you a notification.</p>
+<p>Elixir was surprisingly pleasant, much more so than node. I think I&#39;ll be writing a lot of stuff in the future with it. </p>
+<h6 id="stuff-used-elixir-phoenix-postgres-ecto-browserify-influxdb-gulp">Stuff used: elixir, phoenix, postgres, ecto, browserify, influxdb, gulp</h6>
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>
